@@ -1,10 +1,26 @@
 {
-  "extends": "standard-with-typescript",
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "extends": [
+    "standard-with-typescript",
+    "plugin:react/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "env": {
+    "cypress/globals": true
+  },
+  "plugins": ["react", "react-hooks"],
   "parserOptions": {
-    "project":"./tsconfig.json"
+    "project": "./tsconfig-eslint.json"
   },
   "rules": {
     "@typescript-eslint/consistent-type-definitions": "off",
-    "@typescript-eslint/strict-boolean-expressions": "off"
+    "@typescript-eslint/strict-boolean-expressions": "off",
+    "react-hooks/rulers-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "prettier"
   }
 }
